@@ -13,6 +13,7 @@ public class GameManagerX : MonoBehaviour
     public GameObject titleScreen;
     public Button restartButton;
     public int duration = 60;
+    public float objectLifespan = 10f;
     private int time;
 
     public List<GameObject> targetPrefabs;
@@ -28,6 +29,7 @@ public class GameManagerX : MonoBehaviour
     public void StartGame(int difficulty)
     {
         spawnRate /= difficulty;
+        objectLifespan /= difficulty;
         isGameActive = true;
         StartCoroutine(SpawnTarget());
         StartCoroutine(TimeUpdate());
