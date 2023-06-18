@@ -1106,6 +1106,7 @@ MonoBehaviour:
   gameOverText: {fileID: 919200876}
   titleScreen: {fileID: 92482018}
   restartButton: {fileID: 1902351379}
+  duration: 60
   targetPrefabs:
   - {fileID: 5817859361576445215, guid: 9cc97627ed18b449695d703ab651f5cd, type: 3}
   - {fileID: 1996815852551487035, guid: 11bccc60726374a918b5c73120d47ab3, type: 3}
@@ -1120,7 +1121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128873050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08718565, y: -0.34138075, z: 2.2500772}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1340,6 +1341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82f487199cba435ead2b04905b1c9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManagerX: {fileID: 1128873051}
   difficulty: 2
 --- !u!114 &1390857141
 MonoBehaviour:
@@ -2013,6 +2015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82f487199cba435ead2b04905b1c9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManagerX: {fileID: 1128873051}
   difficulty: 3
 --- !u!114 &1910376317
 MonoBehaviour:
@@ -2149,6 +2152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82f487199cba435ead2b04905b1c9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManagerX: {fileID: 1128873051}
   difficulty: 1
 --- !u!114 &2064518096
 MonoBehaviour:

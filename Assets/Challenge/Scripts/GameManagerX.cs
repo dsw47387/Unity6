@@ -12,6 +12,7 @@ public class GameManagerX : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public GameObject titleScreen;
     public Button restartButton;
+    public int duration = 60;
     private int time;
 
     public List<GameObject> targetPrefabs;
@@ -31,7 +32,7 @@ public class GameManagerX : MonoBehaviour
         StartCoroutine(SpawnTarget());
         StartCoroutine(TimeUpdate());
         score = 0;
-        time = 0;
+        time = duration;
         UpdateScore(0);
         titleScreen.SetActive(false);
     }
@@ -40,9 +41,8 @@ public class GameManagerX : MonoBehaviour
     {
         while (isGameActive)
         {
-            yield return new WaitForSeconds(1);
             UpdateTime();
-
+            yield return new WaitForSeconds(1);
         }
     }
     
@@ -51,24 +51,23 @@ public class GameManagerX : MonoBehaviour
         while (isGameActive)
         {
             yield return new WaitForSeconds(spawnRate);
-            int index = Random.Range(0, 5);
+            int index = Random.Range(0, 4);
 
             if (isGameActive)
             {
                 Instantiate(targetPrefabs[index], RandomSpawnPosition(), targetPrefabs[index].transform.rotation);
             }
-            
         }
     }
     
-    Vector3 RandomSpawnPosition()
+    public Vector3 RandomSpawnPosition()
     {
         float spawnPosX = minValueX + (RandomSquareIndex() * spaceBetweenSquares);
         float spawnPosY = minValueY + (RandomSquareIndex() * spaceBetweenSquares);
 
         Vector3 spawnPosition = new Vector3(spawnPosX, spawnPosY, 0);
+        Debug.Log(spawnPosition);
         return spawnPosition;
-
     }
     
     int RandomSquareIndex()
@@ -79,12 +78,13 @@ public class GameManagerX : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "Score: "+ score;
+        scoreText.text = "Score: " + score;
     }
 
     public void UpdateTime()
     {
         time -= 1;
+        timeText.text = "Time: " + time;
         if(time == 0)
         {
             GameOver();
